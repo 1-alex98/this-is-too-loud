@@ -7,3 +7,4 @@ My first electron app. Standard electron app with little extras. Use `npm start`
 ## What it looks like
 ![Showcase](showcase.png)
 ## How to get it
+[Just see the releases](https://github.com/axel1200/this-is-too-loud/releases)
