@@ -34,7 +34,7 @@ function onRecordMax(){
         $('#record-max').text("Record again")
         $('#recording-max').hide()
         $('#speak-max').hide()
-        $('#recorded-max').text(`Here: ${number.toFixed(1)}`);
+        $('#recorded-max').text(`The level is set to: ${number.toFixed(1)}`);
         $('#recorded-max').show();
         if(minRecordedLevel !== -1 && maxRecordedLevel!== -1) {
             $("#record-missing").hide()
@@ -58,7 +58,7 @@ function onRecordMin(){
         $('#record-min').text("Record again")
         $('#recording-min').hide()
         $('#speak-min').hide()
-        $('#recorded-min').text(`Here: ${number.toFixed(1)}`);
+        $('#recorded-min').text(`The level is set to: ${number.toFixed(1)}`);
         $('#recorded-min').show();
         if(minRecordedLevel !== -1 && maxRecordedLevel!== -1){
             $("#record-missing").hide()
@@ -97,8 +97,8 @@ function check() {
 }
 
 function setStatus(status){
-    $("#status").show()
     const statusIcon = $("#status");
+    statusIcon.show()
     statusIcon.removeClass("text-success")
     statusIcon.removeClass("text-warning")
     statusIcon.removeClass("text-danger")
