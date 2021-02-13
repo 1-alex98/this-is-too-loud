@@ -1,16 +1,18 @@
 {
-  "name": "microphine-electron",
+  "name": "microphone-electron",
+  "productName": "This is too loud",
   "version": "1.0.0",
-  "description": "",
+  "description": "Warns you if you are too loud",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
+    "install": "bower install jquery bootstrap",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Alexander von Trostorff",
+  "license": "MIT",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
     "@electron-forge/maker-deb": "^6.0.0-beta.54",
@@ -20,17 +22,21 @@
     "electron": "^11.2.3"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
-    "jquery": "^3.5.1"
+    "electron-squirrel-startup": "^1.0.0"
   },
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "electronPackagerConfig": {
+        "icon": "icon"
+      },
+      "packagerConfig": {
+        "icon": "icon"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "microphine_electron"
+            "name": "this-is-too-loud"
           }
         }
       ]

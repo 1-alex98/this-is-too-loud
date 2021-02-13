@@ -1,12 +1,12 @@
+if (require('electron-squirrel-startup')) return;
 const { app, BrowserWindow } = require('electron')
-
 function createWindow () {
     const win = new BrowserWindow({
         width: 1000,
         height: 800,
         icon: "./icon.png",
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: false
         },
         autoHideMenuBar: true,
         title: 'Get warned if you are too loud'

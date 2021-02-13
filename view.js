@@ -1,5 +1,5 @@
-let $ = require('jquery')  // jQuery now loaded and assigned to $
 import {startRecording} from "./meter.js";
+
 let volumeWrapper = startRecording();
 
 $('#record-min').on('click', () => {
