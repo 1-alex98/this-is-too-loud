@@ -1,6 +1,6 @@
 import {startRecording} from "./meter.js";
 
-let volumeWrapper = startRecording();
+let volumeWrapper = startRecording()
 
 $('#record-min').on('click', () => {
     onRecordMin()
@@ -18,27 +18,27 @@ $('#recording-max').hide()
 $('#recording-min').hide()
 $('#recorded-max').hide()
 $('#recorded-min').hide()
-$("#status").hide();
-$("#switchWarning").prop("disabled",true);
+$("#status").hide()
+$("#switchWarning").prop("disabled",true)
 
 function onRecordMax(){
     $('#speak-max').show()
     $('#recording-max').show()
     $('#no-max').hide()
-    $('#record-max').prop("disabled",true);
+    $('#record-max').prop("disabled",true)
 
     function onRecordedMax() {
-        let number = volumeWrapper.rollingAverage;
-        maxRecordedLevel = number;
-        $('#record-max').prop("disabled",false);
+        let number = volumeWrapper.rollingAverage
+        maxRecordedLevel = number
+        $('#record-max').prop("disabled",false)
         $('#record-max').text("Record again")
         $('#recording-max').hide()
         $('#speak-max').hide()
-        $('#recorded-max').text(`The level is set to: ${number.toFixed(1)}`);
+        $('#recorded-max').text(`The level is set to: ${number.toFixed(1)}`)
         $('#recorded-max').show();
         if(minRecordedLevel !== -1 && maxRecordedLevel!== -1) {
             $("#record-missing").hide()
-            $("#switchWarning").prop("disabled",false);
+            $("#switchWarning").prop("disabled",false)
         }
     }
 
@@ -49,20 +49,20 @@ function onRecordMin(){
     $('#speak-min').show()
     $('#recording-min').show()
     $('#no-min').hide()
-    $('#record-min').prop("disabled",true);
+    $('#record-min').prop("disabled",true)
 
     function onRecordedmin() {
-        let number = volumeWrapper.rollingAverage;
-        minRecordedLevel = number;
-        $('#record-min').prop("disabled",false);
+        let number = volumeWrapper.rollingAverage
+        minRecordedLevel = number
+        $('#record-min').prop("disabled",false)
         $('#record-min').text("Record again")
         $('#recording-min').hide()
         $('#speak-min').hide()
-        $('#recorded-min').text(`The level is set to: ${number.toFixed(1)}`);
-        $('#recorded-min').show();
+        $('#recorded-min').text(`The level is set to: ${number.toFixed(1)}`)
+        $('#recorded-min').show()
         if(minRecordedLevel !== -1 && maxRecordedLevel!== -1){
             $("#record-missing").hide()
-            $("#switchWarning").prop("disabled",false);
+            $("#switchWarning").prop("disabled",false)
         }
     }
 
@@ -71,25 +71,25 @@ function onRecordMin(){
 
 
 function redAlert() {
-    const audio = new Audio("red.mp3");
-    audio.play();
+    const audio = new Audio("red.mp3")
+    audio.play()
 }
 
 function orangeAlert() {
-    const audio = new Audio("orange.wav");
-    audio.play();
+    const audio = new Audio("orange.wav")
+    audio.play()
 }
 
 function check() {
     if(!document.getElementById("switchWarning").checked){
-        return;
+        return
     }
-    let rollingAverage = volumeWrapper.rollingAverage;
+    let rollingAverage = volumeWrapper.rollingAverage
     if(rollingAverage> maxRecordedLevel){
         redAlert()
         setStatus("red")
     }else if(rollingAverage > ((maxRecordedLevel + minRecordedLevel) /2)){
-        orangeAlert();
+        orangeAlert()
         setStatus("orange")
     }else {
         setStatus()
@@ -97,7 +97,7 @@ function check() {
 }
 
 function setStatus(status){
-    const statusIcon = $("#status");
+    const statusIcon = $("#status")
     statusIcon.show()
     statusIcon.removeClass("text-success")
     statusIcon.removeClass("text-warning")
@@ -111,4 +111,4 @@ function setStatus(status){
     }
 }
 
-setInterval(check, 4000); // one hour check.
+setInterval(check, 4000) // one hour check.
