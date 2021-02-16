@@ -22,6 +22,7 @@ jobs:
           sudo sh -c 'echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" > /etc/apt/sources.list.d/mono-official-stable.list'
           sudo apt update -y
           sudo apt install -y mono-complete
+          npm install
           npm run make
       - name: Create Release
         id: create_release
