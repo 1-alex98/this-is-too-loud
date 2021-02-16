@@ -1,8 +1,10 @@
 on:
   push:
     # Sequence of patterns matched against refs/tags
-    tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+    branches:
+      - master
+    #tags:
+    #  - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 name: Create Release
 
@@ -17,7 +19,7 @@ jobs:
         run: |
           sudo apt update -y
           sudo dpkg --add-architecture i386
-          sudo aptitude install wine-stable wine32
+          sudo apt install wine-stable
           sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates nodejs nodejs-dev node-gyp libssl1.0-dev
           sudo apt install -y npm
           sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
