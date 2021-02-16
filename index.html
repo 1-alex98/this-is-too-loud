@@ -1,50 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset = "UTF-8">
-    <title>Get warned if you are too loud</title>
-    <link rel = "stylesheet"
-          href = "./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <meta charset="UTF-8">
+    <title>Get warned if you're too loud</title>
+    <link rel="stylesheet"
+          href="./node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     <script src="./bower_components/jquery/dist/jquery.min.js"></script>
 </head>
+<style>
+    #rangeSlider::-webkit-slider-runnable-track {
+        background: transparent !important;
+    }
+    #rangeSlider::-webkit-slider-thumb,
+    #rangeSlider::-webkit-slider-thumb:active {
+        height: 3rem;
+        margin-top: -1.5rem;
+        outline: none !important;
+        background: white;
+        box-shadow: 0 0 1rem #0001;
+    }
+    #volumePreview {
+        height: 1rem;
+    }
+</style>
 
-<body>
-<div class = "container my-3">
-    <h1 class="text-center">Welcome define what noise is acceptable</h1>
-    <div class="card">
-        <div class="card-header">Set the aimed level</div>
-        <div class="card-body">
-            <p class="alert alert-info" id="speak-min">Speak now we are listening</p>
-            <p class="alert alert-warning" id="no-min">No level recorded yet</p>
-            <p class="alert alert-success" id="recorded-min">Current level: ?</p>
-            <button type="button" class="btn btn-primary" id="record-min">Record</button>
-            <div class="spinner-grow spinner-grow-sm" id="recording-min"></div>
-        </div>
-    </div>
-    <div class="card my-3">
-        <div class="card-header">Set the unacceptable level</div>
-        <div class="card-body">
-            <p class="alert alert-info" id="speak-max">Speak now we are listening</p>
-            <p class="alert alert-success" id="recorded-max">Current level: ?</p>
-            <p class="alert alert-warning" id="no-max">No level recorded yet</p>
-            <button type="button" class="btn btn-primary" id="record-max">Record</button>
-            <div class="spinner-grow spinner-grow-sm" id="recording-max"></div>
-        </div>
-    </div>
-    <div class="card my-3">
-        <div class="card-header">Turn on warning if you are ready to go</div>
-        <div class="card-body">
-            <p class="alert alert-warning" id="record-missing">Record both levels before you start</p>
-            <form>
-                <div class="custom-control custom-switch" >
-                    <input type="checkbox" class="custom-control-input" id="switchWarning">
-                    <label class="custom-control-label" for="switchWarning">Turn on to get acoustic feedback</label>
-                </div>
-            </form>
-            <div class="spinner-grow text-success" id="status"></div>
-        </div>
-    </div>
+<body class="bg-dark text-light">
+<div class="container-fluid py-2">
+<label for="rangeSlider" class="form-label">Choose your threshold</label>
+<div id="volumePreview" class="rounded">
+<input type="range" id="rangeSlider" class="form-range">
 </div>
-<script src = "./view.js" type="module"></script>
+<script src="./view.js" type="module"></script>
+</div>
 </body>
 </html>

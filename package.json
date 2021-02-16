@@ -6,12 +6,14 @@
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
-    "install": "bower install jquery bootstrap",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
   "keywords": [],
   "author": "Alexander von Trostorff",
+  "contributors": [
+    "Jonathan Hassel"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
@@ -22,6 +24,7 @@
     "electron": "^11.2.3"
   },
   "dependencies": {
+    "bootstrap": "^5.0.0-beta2",
     "electron-squirrel-startup": "^1.0.0"
   },
   "config": {
