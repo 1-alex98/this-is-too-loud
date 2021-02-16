@@ -23,7 +23,7 @@ jobs:
           sudo add-apt-repository universe
           sudo add-apt-repository multiverse
           sudo apt-get update
-          sudo apt-get install wine32
+          sudo apt-get install wine32 wine64 wine-stable
           sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates nodejs nodejs-dev node-gyp libssl1.0-dev
           sudo apt install -y npm
           sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
