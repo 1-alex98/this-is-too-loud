@@ -1,0 +1,30 @@
+on:
+  push:
+    branches:
+      - master
+
+name: To gh pages
+
+jobs:
+  build:
+    name: To gh pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: build
+        run: |
+          sudo apt update -y
+
+          sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates nodejs nodejs-dev node-gyp libssl1.0-dev
+          sudo apt install -y npm
+          npm install
+          echo -e '\n!node_modules
+          !node_modules/bootstrap
+          !node_modules/bootstrap/**\n' >> .gitignore
+          git add --all
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: . # The folder the action should deploy.
