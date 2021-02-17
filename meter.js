@@ -18,7 +18,7 @@ export function startRecording() {
                 let audioContext = new AudioContext();
                 let analyser = audioContext.createAnalyser();
                 let microphone = audioContext.createMediaStreamSource(stream);
-                let javascriptNode = audioContext.createScriptProcessor(512, 1, 1);
+                let javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
 
                 analyser.smoothingTimeConstant = 0.8;
                 analyser.fftSize = 1024;

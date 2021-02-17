@@ -21,16 +21,16 @@ window.requestAnimationFrame(render);
 
 function render() {
     const min = 15;
-    const max = 60;
+    const max = 100;
 
     let fraction = Math.max(0, (volumeWrapper.volume - min) / (max - min) * 100);
     threshold = slider.value / 100 * (max - min) + min;
 
-    let darker = "#ccc";
+    let darker = "#58fa72";
     let brighter = "#eee";
     if (volumeWrapper.volume > threshold) {
         darker = "#f64b4b";
-        brighter = "#eea0a0";
+        brighter = "#eee";
     }
 
     handleBar.style.backgroundImage = "-webkit-linear-gradient(0deg, " + darker + " " + fraction + "%, " + brighter + " " + fraction + "%)";
