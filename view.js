@@ -33,7 +33,7 @@ function render() {
         darker = "#f64b4b";
     }
 
-    handleBar.style.backgroundImage = "-webkit-linear-gradient(0deg, " + darker + " " + fraction + "%, " + brighterOk + " " + fraction + "%, "+ brighterOk+" "+ slider.value +"%, "+brighterWarn+" "+slider.value +"% )";
+    handleBar.style.backgroundImage = "linear-gradient(0deg, " + darker + " " + fraction + "%, " + brighterOk + " " + fraction + "%, "+ brighterOk+" "+ slider.value +"%, "+brighterWarn+" "+slider.value +"% )";
 
     window.requestAnimationFrame(render);
 }
