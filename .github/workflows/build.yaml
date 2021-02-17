@@ -30,9 +30,9 @@ jobs:
           npm install
           npm run make
           echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-          echo '!node_modules
+          echo -e '\n!node_modules
           !node_modules/bootstrap
-          !node_modules/bootstrap/**' >> .gitignore
+          !node_modules/bootstrap/**\n' >> .gitignore
           git add --all
       - name: Create Release
         id: create_release
