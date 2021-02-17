@@ -7,6 +7,6 @@ My first electron app. Standard electron app with little extras. Use `npm instal
 ## What it looks like
 ![Showcase](showcase.png)
 ## How to get it
-[Get an installer](https://github.com/axel1200/this-is-too-loud/releases)
+[Get an installer](https://github.com/1-alex98/this-is-too-loud/releases)
 
-[See online](https://axel1200.github.io/this-is-too-loud/)
+[See online](https://1-alex98.github.io/this-is-too-loud/)
