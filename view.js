@@ -20,20 +20,20 @@ let threshold;
 window.requestAnimationFrame(render);
 
 function render() {
-    const min = 15;
+    const min = 10;
     const max = 100;
 
     let fraction = Math.max(0, (volumeWrapper.volume - min) / (max - min) * 100);
     threshold = slider.value / 100 * (max - min) + min;
 
     let darker = "#58fa72";
-    let brighter = "#eee";
+    let brighterOk = "#eee";
+    let brighterWarn = "#ea9999";
     if (volumeWrapper.volume > threshold) {
         darker = "#f64b4b";
-        brighter = "#eee";
     }
 
-    handleBar.style.backgroundImage = "-webkit-linear-gradient(0deg, " + darker + " " + fraction + "%, " + brighter + " " + fraction + "%)";
+    handleBar.style.backgroundImage = "-webkit-linear-gradient(0deg, " + darker + " " + fraction + "%, " + brighterOk + " " + fraction + "%, "+ brighterOk+" "+ slider.value +"%, "+brighterWarn+" "+slider.value +"% )";
 
     window.requestAnimationFrame(render);
 }

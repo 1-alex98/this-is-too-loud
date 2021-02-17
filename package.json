@@ -1,7 +1,7 @@
 {
   "name": "microphone-electron",
   "productName": "This is too loud",
-  "version": "1.0.0",
+  "version": "2.0.13",
   "description": "Warns you if you are too loud",
   "main": "main.js",
   "scripts": {
