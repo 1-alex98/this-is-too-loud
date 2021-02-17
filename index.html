@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get warned if you're too loud</title>
+    <link rel="stylesheet"
+          href="./node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+</head>
+<style>
+    #rangeSlider::-webkit-slider-runnable-track {
+        background: transparent !important;
+    }
+    #rangeSlider::-webkit-slider-thumb,
+    #rangeSlider::-webkit-slider-thumb:active {
+        height: 3rem;
+        margin-top: -1.5rem;
+        outline: none !important;
+        background: white;
+        box-shadow: 0 0 1rem #0001;
+    }
+    #volumePreview {
+        height: 1rem;
+    }
+</style>
+
+<body class="bg-dark text-light">
+<div class="container-fluid py-2">
+<label for="rangeSlider" class="form-label">Choose your threshold</label>
+<div id="volumePreview" class="rounded">
+<input type="range" id="rangeSlider" class="form-range">
+</div>
+<script src="./view.js" type="module"></script>
+</div>
+</body>
+</html>

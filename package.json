@@ -1,0 +1,48 @@
+{
+  "name": "microphone-electron",
+  "productName": "This is too loud",
+  "version": "1.0.0",
+  "description": "Warns you if you are too loud",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make --platform win32"
+  },
+  "keywords": [],
+  "author": "Alexander von Trostorff",
+  "contributors": [
+    "Jonathan Hassel"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "electron": "^11.2.3"
+  },
+  "dependencies": {
+    "bootstrap": "^5.0.0-beta2",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "electronPackagerConfig": {
+        "icon": "icon"
+      },
+      "packagerConfig": {
+        "icon": "icon"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "this-is-too-loud"
+          }
+        }
+      ]
+    }
+  }
+}
