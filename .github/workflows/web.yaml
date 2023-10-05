@@ -12,12 +12,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - name: build
         run: |
-          sudo apt update -y
-
-          sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates nodejs nodejs-dev node-gyp libssl1.0-dev
-          sudo apt install -y npm
           npm install
           echo -e '\n!node_modules
           !node_modules/bootstrap
