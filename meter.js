@@ -15,23 +15,19 @@ export function startRecording() {
                 audio: true
             },
             function (stream) {
-                let audioContext = new AudioContext();
-                let analyser = audioContext.createAnalyser();
-                let microphone = audioContext.createMediaStreamSource(stream);
-                let javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
-
-                analyser.smoothingTimeConstant = 0.8;
-                analyser.fftSize = 1024;
-
-                microphone.connect(analyser);
-                analyser.connect(javascriptNode);
-                javascriptNode.connect(audioContext.destination);
-
-                javascriptNode.onaudioprocess = function () {
-                    const array = new Uint8Array(analyser.frequencyBinCount);
-                    analyser.getByteFrequencyData(array);
-                    volumeWrapper.volume = array.average();
+                const audioContext = new AudioContext()
+                await audioContext.audioWorklet.addModule('https://codepen.io/forgived/pen/PoZQzWP.js')
+                let microphone = audioContext.createMediaStreamSource(stream)
+        
+                const node = new AudioWorkletNode(audioContext, 'vumeter')
+                node.port.onmessage  = event => {
+                    let _volume = 0
+                    let _sensibility = 5
+                    if (event.data.volume)
+                        _volume = event.data.volume;
+                    volumeWrapper.volume = ((_volume * 100) / _sensibility)
                 }
+                microphone.connect(node).connect(audioContext.destination)
             },
             function (err) {
                 console.log("The following error occured: " + err.name)
